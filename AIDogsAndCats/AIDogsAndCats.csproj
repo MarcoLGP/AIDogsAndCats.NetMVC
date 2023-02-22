@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="1.7.1" />
+    <PackageReference Include="Microsoft.ML.Vision" Version="1.7.1" />
+    <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ia\" />
+    <Folder Include="wwwroot\assets\images\" />
+  </ItemGroup>
+  <ItemGroup Label="AICatsAndDogsModel">
+    <None Include="AICatsAndDogsModel.consumption.cs">
+      <DependentUpon>AICatsAndDogsModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="AICatsAndDogsModel.training.cs">
+      <DependentUpon>AICatsAndDogsModel.mbconfig</DependentUpon>
+    </None>
+    <None Include="AICatsAndDogsModel.zip">
+      <DependentUpon>AICatsAndDogsModel.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="AICatsAndDogsModel.mbconfig">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
