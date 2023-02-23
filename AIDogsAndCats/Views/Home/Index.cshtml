@@ -10,9 +10,8 @@
     <video autoplay loop class="cat_movie" muted>
         <source type="video/mp4" src="assets/videos/CatMovie.mp4" />
     </video>
-    <form method="post" class="mt-2">
-        <input asp-for="Image" type="file" accept="image/*" />
+    <form method="post" class="mt-2" enctype="multipart/form-data">
+        <input asp-for="Image" accept="image/*" />
         <button type="submit" class="btn btn-primary">Fazer upload</button>
     </form>
-    
 </div>

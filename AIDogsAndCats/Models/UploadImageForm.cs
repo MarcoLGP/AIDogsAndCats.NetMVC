@@ -4,7 +4,8 @@ namespace AIDogsAndCats.Models
 {
     public class UploadImageForm
     {
-        [Required(ErrorMessage = "Selecione uma imagem para continuar")]
-        public string Image { get; set; }
+        public IFormFile? Image { get; set; }
+        public string? ImageName { get; set; }
+        public string? ImageInBase64 { get; set; }
     }
 }

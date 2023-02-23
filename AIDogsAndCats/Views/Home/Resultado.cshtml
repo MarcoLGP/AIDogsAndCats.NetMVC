@@ -1,0 +1,11 @@
+﻿@model UploadImageForm;
+
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<div class="col mx-auto text-center">
+    <h2 class="display-4">Resultado do teste</h2>
+    <p>Após analisar a imagem abaixo, a inteligência artificial chegou conclusão que se trata de um Cachorro.</p>
+    <img src=@(Model.ImageInBase64) class="image_result" />
+</div>
