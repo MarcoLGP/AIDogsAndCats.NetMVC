@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.cat_movie {
+    height: 250px;
+    width: 420px;
+}

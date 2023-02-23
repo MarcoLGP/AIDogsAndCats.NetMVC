@@ -13,7 +13,29 @@ namespace AIDogsAndCats.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(UploadImageForm form)
+        {
+            if (ModelState.IsValid)
+            {
+                Console.WriteLine(form.Image);
+                ViewBag.Message = "Nice";
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Sobre()
         {
             return View();
         }

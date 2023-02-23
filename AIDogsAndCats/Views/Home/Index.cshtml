@@ -1,9 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model UploadImageForm;
+
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
+<div class="col-sm-6 mx-auto text-center">
     <h1 class="display-4">PetAI</h1>
-    <p>Faça o upload de uma imagem de uma cachorro ou gato, que a inteligência artificial irá analisar e diferenciar.</p>
-    <img src="assets/images/" />
+    <p>Faça o upload de uma imagem de um cachorro ou gato, que a inteligência artificial irá analisar e diferenciar.</p>
+    <video autoplay loop class="cat_movie" muted>
+        <source type="video/mp4" src="assets/videos/CatMovie.mp4" />
+    </video>
+    <form method="post" class="mt-2">
+        <input asp-for="Image" type="file" accept="image/*" />
+        <button type="submit" class="btn btn-primary">Fazer upload</button>
+    </form>
+    
 </div>

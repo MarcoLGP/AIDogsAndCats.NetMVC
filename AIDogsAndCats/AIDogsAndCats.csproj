@@ -5,13 +5,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Ia\**" />
+    <Content Remove="Ia\**" />
+    <EmbeddedResource Remove="Ia\**" />
+    <None Remove="Ia\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
     <PackageReference Include="Microsoft.ML.Vision" Version="1.7.1" />
     <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Ia\" />
     <Folder Include="wwwroot\assets\images\" />
+    <Folder Include="wwwroot\assets\videos\" />
   </ItemGroup>
   <ItemGroup Label="AICatsAndDogsModel">
     <None Include="AICatsAndDogsModel.consumption.cs">
