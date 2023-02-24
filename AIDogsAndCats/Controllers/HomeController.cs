@@ -24,9 +24,15 @@ namespace AIDogsAndCats.Controllers
         [HttpPost]
         public async Task<ActionResult> Index(UploadImageForm form)
         {
+            List<string> ImageExtensions = new() { ".JPG", ".JPEG", ".JPE", ".BMP", ".GIF", ".PNG" };
+            string extension = Path.GetExtension(form.Image.FileName);
+            if (!ImageExtensions.Contains(extension))
+            {
+                ViewBag.Error = "Arquivo inválido, utilize uma imagem";
+                return View();
+            }
             string wwwrootPath = _webHostEnvironment.WebRootPath;
             string fileName = Path.GetFileNameWithoutExtension(form.Image.FileName);
-            string extension = Path.GetExtension(form.Image.FileName);
             form.ImageName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
             string pathImage = Path.Combine(wwwrootPath + "/imageUploaded", form.ImageName);
             
