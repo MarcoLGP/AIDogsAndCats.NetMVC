@@ -3,19 +3,30 @@
     public class AIDogsAndCatsMlModel
     {
         public string? Result { get; set; }
-        public decimal? Score { get; set; }
-
-        public void GetPredict(byte[] file)
+        public string? ImageModel { get; set; }
+        public void GetPredict(string file)
         {
-            var sampleData = new AICatsAndDogsModel.ModelInput()
+            //Load sample data
+            var imageBytes = File.ReadAllBytes(file);
+            AICatsAndDogsModel.ModelInput sampleData = new()
             {
-                ImageSource = file
+                ImageSource = imageBytes
             };
 
-            var output = AICatsAndDogsModel.Predict(sampleData);
-            var result = output.PredictedLabel;
-            Console.WriteLine(result);
-
+            //Load model and predict output
+            var result = AICatsAndDogsModel.Predict(sampleData);
+            if (result.PredictedLabel.Equals("Cachorro"))
+            {
+                Result = $"que se trata de um Cachorro";
+            }
+            else if (result.PredictedLabel.Equals("Gato"))
+            {
+                Result = $"que se trata de um Gato";
+            }
+            else
+            {
+                Result = $"que não se trata de um cachorro nem gato";
+            }
         }
     }
 }

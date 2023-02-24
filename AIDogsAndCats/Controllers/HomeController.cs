@@ -34,22 +34,24 @@ namespace AIDogsAndCats.Controllers
             {
                 await form.Image.CopyToAsync(fileStream);
             }
-            
+
+            AIDogsAndCatsMlModel aIDogsAndCatsMlModel = new();
             using (Image image = Image.FromFile(pathImage))
             {
-                using (MemoryStream m = new MemoryStream())
+                using (MemoryStream m = new())
                 {
                     image.Save(m, image.RawFormat);
                     byte[] imageBytes = m.ToArray();
 
                     // Convert byte[] to Base64 String
                     string base64String = Convert.ToBase64String(imageBytes);
-                    form.ImageInBase64 = $"data:image/{extension};base64,{base64String}";
+                    aIDogsAndCatsMlModel.ImageModel = $"data:image/{extension};base64,{base64String}";
                 }
             }
+            aIDogsAndCatsMlModel.GetPredict(pathImage);
 
             System.IO.File.Delete(pathImage);
-            return View(viewName: "Resultado", model: form);
+            return View(viewName: "Resultado", model: aIDogsAndCatsMlModel);
         }
 
         [HttpGet]
