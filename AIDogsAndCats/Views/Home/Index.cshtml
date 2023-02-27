@@ -4,15 +4,15 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="col-sm-6 mx-auto text-center">
+<div class="col mx-auto text-center">
     <h1 class="display-4">PetAI</h1>
     <p>Faça o upload de uma imagem de um cachorro ou gato, que a inteligência artificial irá analisar e diferenciar.</p>
-    <video autoplay loop class="cat_movie" muted>
+    <video autoplay loop class="media_content" muted>
         <source type="video/mp4" src="assets/videos/CatMovie.mp4" />
     </video>
     <form method="post" class="mt-2" enctype="multipart/form-data">
         <input asp-for="Image" accept="image/*" />
         <button type="submit" class="btn btn-primary">Analisar</button>
-        <span asp-validation-for="Image" class="text-danger">*@(ViewBag.Error)</span>
+        <span asp-validation-for="Image" class="text-danger">@(ViewBag.Error)</span>
     </form>
 </div>

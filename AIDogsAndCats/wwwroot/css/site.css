@@ -2,12 +2,6 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
 html {
   position: relative;
   min-height: 100%;
@@ -17,12 +11,21 @@ body {
   margin-bottom: 60px;
 }
 
-.cat_movie {
+.media_content {
     height: 250px;
     width: 420px;
 }
 
-.image_result {
-    height: 300px;
-    width: 550px;
+@media(max-width: 444px)
+{
+    .media_content {
+        width: 320px
+    }
+}
+
+@media(max-width: 336px)
+{
+    .media_content {
+        width: 280px;
+    }
 }

@@ -27,7 +27,7 @@ namespace AIDogsAndCats.Controllers
             string extension = Path.GetExtension(form.Image.FileName);            
             if (!ImageExtensions.Contains(extension.ToUpper()))
             {
-                ViewBag.Error = "Arquivo inválido, utilize uma imagem";
+                ViewBag.Error = "* Arquivo inválido, utilize uma imagem";
                 return View();
             }
 
